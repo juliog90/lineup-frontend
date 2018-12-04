@@ -1,0 +1,36 @@
+.title {
+    font-size: 20pt;
+    font-weight: bold;
+    fill: #555;
+    text-anchor: middle;
+}
+.subtitle {
+    font-size: 16pt;
+    fill: #777;
+    text-anchor: middle;
+}
+.footer {
+    font-size: 12pt;
+    font-style: italic;
+    fill: #777;
+    text-anchor: middle;
+}
+.label {
+    font-size: 10pt;
+    fill: #777;
+    text-anchor: left;
+} 
+.colorbox {
+    stroke: #777;
+    stroke-width: 1px;
+}
+.slice {
+    fill: #999;
+    stroke: #777;
+    stroke-width: 1px;
+}
+.circle {
+    fill: #EEE;
+    stroke: #CCC;
+    stroke-width: 1px;
+}
