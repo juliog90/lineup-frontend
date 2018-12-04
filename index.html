@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,23 +13,19 @@
   </head>
 
   <body onload="init()">
-    <div class="container">
-      <div class="one-third column">&nbsp;</div>
-      <div class="one-third column">
-        <div class="navbar"><h1>Line Up</h1></div>
-        <h3 text-align="center">Teams </h3 >
+		<header>
+			<div id="headertext">Match Teams</div>
+		</header>
+    <div class="container2">
+      <div id="content2">
+        <h3>Choose your Team</h3 >
         <select id="number" onchange="val()">
         </select>
-        <div id="image">
-          <img id="teamBigPhoto">
-          <div id="data">
+        <table id="content3">
 
-          </div>
-        </div>
-          <button onclick="loadPage()"; type="button">LineUp</button>
+        </table>
+        <button onclick="loadPage()"; type="button">LineUp</button>
       </div>
-      <div class="one-third column">&nbsp;</div>
     </div>
-
   </body>
 </html>

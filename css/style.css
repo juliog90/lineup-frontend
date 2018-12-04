@@ -283,3 +283,74 @@ header {
 #tbHistoryPlayer td{
     background-color: #D2EBF6;
 }
+
+.container {
+    text-align: center;
+    display: grid;
+}
+
+.container2 {
+    text-align: center;
+}
+
+#content2 {
+    margin-top: 1em;
+    display: inline-block;
+}
+
+#content3 {
+    /* display: inline-block; */
+    margin: 2em;
+    border-size: 0.2em
+}
+
+#content3 td {
+    padding: 1em;
+    border-collapse: collapse;
+    border-radius: 0.7em;
+    overflow: hidden;
+    color: #363434;
+}
+
+#fil1 {
+    background: #70AEF9;
+}
+
+#fil2 {
+    background: #D8E5F5;
+}
+
+#content2 button {
+    border-radius: 0.5em;
+    border-spacing: 1em;
+    background-color: #4CAF50;;
+    border: none;
+    color: white;
+    padding: 1em 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+#content2 button:hover {
+    background-color: #8BDA8E;;
+}
+
+#content2 select {
+    background-color: #F0FBE9;
+    margin-top: 1em;
+    padding: 0.8em 1.6em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8em;
+}
+
+#content2 select:hover {
+    background-color: #fff;
+}
+
+#players {
+    
+}
