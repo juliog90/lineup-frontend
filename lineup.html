@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Standings</title>
+	<title>Lineup</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/chart.css">
 	<script type="text/javascript" src="js/teams.js"></script>
@@ -51,8 +51,8 @@
 
 			<nav id="fila6" style=" width:7%; height:35px; position:absolute; top:13%; left:91%;">
 				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
+						<td><button onclick="up" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
+						<td><button onclick="down" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
 				</div>			
 			</nav>
 
@@ -193,64 +193,5 @@
 			</nav>
 			
 </header>
-		<style type="text/css">
-
-			
-
-			.axisline{
-				stroke: #000;
-			}
-			#userNone{
-				height: 100px;
-				width: 140px;
-			}
-			#graphics{
-				height: 300px;
-			}
-			.namePlayers:hover{
-				background-color: #A68D96;
-			}
-
-			 #tbStadistics th, #tbStadistics td{
-				text-align: center;
-				height: 25px;
-				width: 300px;
-				border: solid 1px;
-			}
-
-			#tbStadistics th{
-				background-color: #65C4EF;
-			}
-			#tbStadistics td{
-				background-color: #D2EBF6;
-			}
-
-			.namePlayers img{
-				position: relative;
-				height: 30px;
-				float: right;
-				top: -24px;
-			}
-
-			#tbHistoryPlayer th, #tbHistoryPlayer td{
-				text-align: center;
-				height: 25px;
-				width: 400px;
-				border: solid 1px;
-			}
-
-			#tbHistoryPlayer{
-			margin: 1px;
-			border-collapse: collapse;
-			margin-top: 1px;
-			}
-
-			#tbHistoryPlayer th{
-				background-color: #65C4EF;
-			}
-			#tbHistoryPlayer td{
-				background-color: #D2EBF6;
-			}
-		</style>
 	</body>
 </html>
