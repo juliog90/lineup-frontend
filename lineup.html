@@ -1,197 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Lineup</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/chart.css">
-	<script type="text/javascript" src="js/teams.js"></script>
-	<script src="js/piechart.js"></script>
-	<script src="js/svg.js"></script>
+  <head>
+    <title>LineUp</title>
+    <!--style sheet-->
+    <link href="css/chart.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <!--Javascript-->
+    <script src="js/main.js"></script>
+    <script src="js/list.js"></script>
+    <meta name ="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+  </head>
 
-</head>
-	<body onload="init();">
-		<header>
-			<div id="headertext">Column Chart</div>
-		</header>
-
-			<nav id="listPlayer">
-				<div id="nameTeam">
-					<h4>Jugadores</h4>
-				</div>
-			</nav>
-			
-			<nav id="fila1" style="width:40%; height:35px; position:absolute; top:7%; left:22.4%;">
-				<div id="Name">
-					<h4>Nombre de los Jugadores</h4>
-				</div>			
-			</nav>
-		
-			
-			<nav id="fila2" style="width:27%; height:35px; position:absolute; top:7%; left:63%;">
-				<div id="Flecha">
-					<h4>Posicion<h4>
-				</div>			
-			</nav>
-
-			<nav id="fila3" style="width:7%; height:35px; position:absolute; top:7%; left:91%;">
-				<div id="Flecha">
-						<h4>Cambiar</h4>
-				</div>			
-			</nav>
-
-			<nav id="fila4" style="position:absolute; top:13%; left:22.4%;">
-				<div id="Name">
-						
-				</div>			
-			</nav>
-
-			<select id="fila5" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:13%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila6" style=" width:7%; height:35px; position:absolute; top:13%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="up" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="down" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:19%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:19%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:19%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:25%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:25%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:25%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:31%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:31%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:31%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:37%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:37%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:37%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:43%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:43%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:43%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:49%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:49%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:49%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:55%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:55%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:55%; left:91%;">
-				<div id="Flecha">
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-						<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-
-			<nav id="fila7" style="position:absolute; top:61%; left:22.4%;">
-				<div id="Name">
-					
-				</div>			
-			</nav>
-
-			<select id="fila8" onChange=showTable(this.value) style= "width:27%; height:35px; position:absolute; top:61%; left:63%;">
-				<option></option>
-			</select>
-
-			<nav id="fila9" style="position:absolute; top:61%; left:91%;">
-				<div id="Flecha">
-					<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:10px; width:30%; height:60%;"><img src="img/arriba.png" alt="none" width="12" height="14"></button></td>
-					<td><button onclick="LineUpHome" class="primarybutton" style="position:absolute; top:20%; left:65px; width:30%; height:60%;"><img src="img/abajo.png" alt="none" width="11" height="11"></button></td>
-				</div>			
-			</nav>
-			
-</header>
-	</body>
+  <body onload="initLineup()">
+    <header>
+      <div id="headertext">Team LineUp</div>
+    </header>
+    <div class="container">
+      <div id="players"></div>
+      <div id="list"></div>
+    </div>
+  </body>
 </html>
