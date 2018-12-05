@@ -1,5 +1,9 @@
 var matchId;
 var teamId;
+var tea;
+var mat;
+var lineups;
+
 function init() {
   let apiUrl = "http://localhost/baseball_project/src/";
   //create request object
@@ -37,15 +41,13 @@ function init() {
 
       var idHome = jsonResponse.matches.homeTeam;
       var idGuest = jsonResponse.matches.guestTeam;
-      changuePhoto(idGuest);
+      changuePhoto(idHome);
 
       var combo = document.getElementById('number');
       combo.addEventListener('onchange', function() { changuePhoto(this) }, false);
 
-      loadTeam(idGuest);
       loadTeam(idHome);
-
-      var combox = document.getElementById('number');
+      loadTeam(idGuest);
     }
   }
 }
@@ -185,15 +187,18 @@ function loadFrame(teamSelected)
   contenedor.appendChild(fila1);
   contenedor.appendChild(fila2);
   contenedor.appendChild(fila3);
+  teamId = team.id;
+  console.log(teamId);
+
 }
 
 function loadPage(){
-  window.location.href="lineup.html?mat="+matchId+"?team="+teamId;
+  window.location.href="lineup.html?mat="+matchId+"&team="+teamId;
 }
 
 function playersTable()
 {
-  let apiUrl = "http://localhost/baseball_project/src/teamplayers/1";
+  let apiUrl = "http://localhost/baseball_project/src/teamplayers/" + tea;
   //create request object
   let x = new XMLHttpRequest();
 
@@ -319,6 +324,10 @@ function loadListLineUp()
 
 function initLineup()
 {
+  var url_string = window.location.href; 
+  var url = new URL(url_string);
+  mat = url.searchParams.get("mat");
+  tea = url.searchParams.get("team");
   let apiUrl = "http://localhost/baseball_project/src/lineup/";
   //create request object
   let x = new XMLHttpRequest();
@@ -326,11 +335,9 @@ function initLineup()
   //prepare request
   x.open('GET',apiUrl);
 
-  //request headers
-  /*x.setRequestHeader('username',document.getElementById('username').value);
-  x.setRequestHeader('password',document.getElementById('password').value);*/
+  x.setRequestHeader('team', tea);
+  x.setRequestHeader('match', mat);
 
-  //send request
   x.send();
   //onreadystatechange event handler
   x.onreadystatechange = function(){
@@ -339,6 +346,7 @@ function initLineup()
     //status = 404 : Page not found (check API url)
     //status = 500 : Request denied by server (check API Access-ControlAllow)
     if(x.readyState == 4 & x.status == 200){
+      console.log(x.responseText);
       var jsonResponse = JSON.parse(x.responseText);
       if(jsonResponse.status == 0){
         //grant access
@@ -349,11 +357,11 @@ function initLineup()
 
       }
 
-      let exists = jsonResponse.result;
+      lineups = jsonResponse.lineups;
 
-  playersTable();
+      playersTable();
 
-      if(exists == 0)
+      if(lineups.length !== 0)
       {
         loadListLineUp();
       }
@@ -361,33 +369,35 @@ function initLineup()
       {
         newLineUp();
       }
-}
-
-function addPlayer()
-{
-  console.log('add');
-}
-
-function delListPlayer()
-{
-
-}
-
-function fillPosition(combo)
-{
-  let positions = ['1B', '2B', '3B', 'C', 'CF', 'LF', 'P', 'RF', 'SS' ];
-  let posNames = ['First Base', 'Second Base', 'Third Base', 'Catcher', 'Center Field', 'Left Field', 'Pitcher', 'Right Field', 'Short Stop' ];
-
-  for(let i = 0;i < positions.length; i++)
-  {
-    let posOption = createElement('option');
-    posOption.value = posNames[i];
-    posOption.id = positions[i];
+    }
   }
 }
 
-function newLineUp()
-{
+    function addPlayer()
+    {
+      console.log('add');
+    }
+
+    function delListPlayer()
+    {
+
+    }
+
+    function fillPosition(combo)
+    {
+      let positions = ['1B', '2B', '3B', 'C', 'CF', 'LF', 'P', 'RF', 'SS' ];
+      let posNames = ['First Base', 'Second Base', 'Third Base', 'Catcher', 'Center Field', 'Left Field', 'Pitcher', 'Right Field', 'Short Stop' ];
+
+      for(let i = 0;i < positions.length; i++)
+      {
+        let posOption = createElement('option');
+        posOption.value = posNames[i];
+        posOption.id = positions[i];
+      }
+    }
+
+    function newLineUp()
+    {
 
       let list = document.getElementById('list');
       let emptyTable = document.createElement('table');
@@ -400,16 +410,14 @@ function newLineUp()
 
       players.appendChild(playersTable);
     }
-  }
-}
 
-function createEmptySpace(emptyPos, emptyId)
-{
-  emptyPos.innerHTML = null;
-  let empty = document.createElement('td');
+    function createEmptySpace(emptyPos, emptyId)
+    {
+      emptyPos.innerHTML = null;
+      let empty = document.createElement('td');
 
-  empty.innerHTML = "EmptySpace";
-  empty.class = "Empty";
-  emptyPos.id = emptyId;
-  emptyPos.appendChild(empty);
-}
+      empty.innerHTML = "EmptySpace";
+      empty.class = "Empty";
+      emptyPos.id = emptyId;
+      emptyPos.appendChild(empty);
+    }
