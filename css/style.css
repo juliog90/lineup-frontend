@@ -285,8 +285,16 @@ header {
 }
 
 .container {
-    text-align: center;
     display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.one {
+    grid-column: 1/2;
+}
+
+.two {
+    grid-column: 2/2;
 }
 
 .container2 {
@@ -353,4 +361,8 @@ header {
 
 #players {
     
+}
+
+#players tr {
+    text-align: left;
 }
